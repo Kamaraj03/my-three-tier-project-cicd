@@ -3,7 +3,7 @@ terraform {
     bucket         = "bucketforeksproject"
     region         = "us-east-1"
     key            = "my-three-tier-project-cicd/Jenkins-Server-TF/terraform.tfstate"
-    dynamodb_table = "dynamodb-table-for-terrafrom-state-lock"
+    dynamodb_table = "dynamodb-table-for-jenkins-terrafrom-state-lock"
     encrypt        = true
   }
   required_version = ">=0.13.0"
