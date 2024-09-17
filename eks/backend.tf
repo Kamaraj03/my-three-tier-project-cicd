@@ -10,7 +10,7 @@ terraform {
     bucket         = "bucketforeksproject"
     region         = "us-east-1"
     key            = "my-three-tier-project-cicd/eks/terraform.tfstate"
-    dynamodb_table = "dynamodb-table-for-terrafrom-state-lock"
+    dynamodb_table = "dynamodb-table-for-eks-terrafrom-state-lock"
     encrypt        = true
   }
 }
