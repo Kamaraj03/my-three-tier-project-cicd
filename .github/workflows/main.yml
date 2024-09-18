@@ -1,4 +1,4 @@
-name: 'Terraform'
+name: 'Terraform Code For EKS Cluster'
 
 on:
   workflow_dispatch:
