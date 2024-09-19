@@ -90,6 +90,7 @@ pipeline {
                 GIT_USER_NAME = "Kamaraj03"
             }
             steps {
+               script{
                 dir('Kubernetes-Manifests-file/Frontend') {
                     withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                         sh '''
