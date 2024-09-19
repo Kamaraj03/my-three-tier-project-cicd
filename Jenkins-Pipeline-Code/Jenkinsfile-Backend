@@ -68,9 +68,9 @@ pipeline {
         stage("ECR Image Pushing") {
             steps {
                 script {
-                        sh 'aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${REPOSITORY_URI}'
-                        sh 'docker tag ${AWS_ECR_REPO_NAME} ${REPOSITORY_URI}${AWS_ECR_REPO_NAME}:${BUILD_NUMBER}'
-                        sh 'docker push ${REPOSITORY_URI}${AWS_ECR_REPO_NAME}:${BUILD_NUMBER}'
+                        sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 992382467850.dkr.ecr.us-east-1.amazonaws.com '
+                        sh 'docker tag backend:latest 992382467850.dkr.ecr.us-east-1.amazonaws.com/backend:${BUILD_NUMBER}'
+                        sh 'docker push 992382467850.dkr.ecr.us-east-1.amazonaws.com/backend:${BUILD_NUMBER}'
                 }
             }
         }
@@ -95,7 +95,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                         sh '''
                             git config user.email "kamarajselvam03.ks@gmail.com"
-			    git config user.name "Kamaraj03"
+			                git config user.name "Kamaraj03"
                             BUILD_NUMBER=${BUILD_NUMBER}
                             echo $BUILD_NUMBER
                             imageTag=$(grep -oP '(?<=backend:)[^ ]+' deployment.yaml)
