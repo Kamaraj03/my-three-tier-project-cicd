@@ -90,9 +90,12 @@ pipeline {
                 GIT_USER_NAME = "Kamaraj03"
             }
             steps {
+               script{
                 dir('Kubernetes-Manifests-file/Backend') {
                     withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                         sh '''
+                            git config user.email "kamarajselvam03.ks@gmail.com"
+			    git config user.name "Kamaraj03"
                             BUILD_NUMBER=${BUILD_NUMBER}
                             echo $BUILD_NUMBER
                             imageTag=$(grep -oP '(?<=backend:)[^ ]+' deployment.yaml)
@@ -107,4 +110,5 @@ pipeline {
             }
         }
     }
+}
 }
